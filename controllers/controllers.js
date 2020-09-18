@@ -1,5 +1,6 @@
 // VIEW CONTROLLER
 
+var ObjectId = require("mongodb").ObjectId; 
 
 module.exports = {
     viewAll: function (app, req, res) {
@@ -13,8 +14,9 @@ module.exports = {
     },
     viewItem: function (app, req, res) {
         console.info("View One controller")
-        let filmID = parseInt(req.params.filmID);
-        app.set('myDb').collection('filmsCollection').find({"filmID": filmID}).toArray(function(err, docs) {
+            let filmID = req.params.filmID;
+            var o_id = new ObjectId(filmID);
+        app.set('myDb').collection('filmsCollection').find({ "_id": o_id }).toArray(function(err, docs) {
             if (err) {
                 console.error(err)
             }
