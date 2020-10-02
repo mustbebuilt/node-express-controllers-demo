@@ -5,7 +5,7 @@ const router = express.Router();
 // add myControllers 
 //const myControllers = require('../controllers/controllers.js');
 
-console.dir(myControllers);
+//console.dir(myControllers);
 
 module.exports = (app) => {
 
@@ -17,16 +17,6 @@ module.exports = (app) => {
             headingOne: 'Page made from parts'
             });
     });
-
-    router.get('/allfilms', (req, res) => {
-        myControllers.viewAll(app, req, res);
-    });
-
-    router.get('/film/:filmID', (req, res) => {
-        myControllers.viewItem(app, req, res);
-    });
-
-    // add POST, PUT AND DELETE ROUTES
 
   
     return router;
